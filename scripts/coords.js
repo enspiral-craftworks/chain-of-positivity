@@ -6,10 +6,6 @@ var config = require('./config.js');
 
 // -----------------------------+ private functions +--------------------------------
 
-function LatLon(lat, lon){
-	this.lat = lat;
-	this.lon = lon;
-}
 
 function toRad(n) {
 	return n * Math.PI / 180;
