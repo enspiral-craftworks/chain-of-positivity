@@ -1,6 +1,4 @@
-# Chain of Positivity
-
-> A digital visualisation of physical positivity
+Pretty sure you meant http://chainofpositivity.org
 
 The chain of positivity is about the physical paper chains people make
 

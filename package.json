@@ -1,0 +1,26 @@
+{
+  "name": "chain-of-positivity",
+  "version": "1.0.0",
+  "description": "Pretty sure you meant http://chainofpositivity.org",
+  "main": "scripts.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/enspiral-craftworks/chain-of-positivity.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/enspiral-craftworks/chain-of-positivity/issues"
+  },
+  "homepage": "https://github.com/enspiral-craftworks/chain-of-positivity#readme",
+  "devDependencies": {
+    "chai": "*",
+    "mocha": "*"
+  }
+}
