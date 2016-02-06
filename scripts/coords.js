@@ -1,5 +1,5 @@
 
-var _ = require('./constants.js');
+var _ = require('./config.js');
 
 
 

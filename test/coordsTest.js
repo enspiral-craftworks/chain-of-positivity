@@ -3,7 +3,7 @@ var assert = require('assert');
 var chai = require('chai')
 var expect = chai.expect;
 var coords = require('../scripts/coords.js');
-var _ = require('../scripts/constants.js');
+var _ = require('../scripts/config.js');
   
 describe('getDestinationLatLon()', function () {
   it('should be a function', function(){
