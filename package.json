@@ -1,7 +1,7 @@
 {
   "name": "chain-of-positivity",
   "version": "1.0.0",
-  "description": "Pretty sure you meant http://chainofpositivity.org",
+  "description": "A digital visualisation of physical positivity",
   "main": "scripts.js",
   "directories": {
     "test": "test"
