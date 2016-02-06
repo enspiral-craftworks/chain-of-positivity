@@ -1,0 +1,26 @@
+{
+  "name": "chain-of-positivity",
+  "version": "1.0.0",
+  "description": "A digital visualisation of physical positivity",
+  "main": "scripts.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/enspiral-craftworks/chain-of-positivity.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/enspiral-craftworks/chain-of-positivity/issues"
+  },
+  "homepage": "https://github.com/enspiral-craftworks/chain-of-positivity#readme",
+  "devDependencies": {
+    "chai": "*",
+    "mocha": "*"
+  }
+}
