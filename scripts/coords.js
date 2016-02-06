@@ -1,34 +1,27 @@
-
 var config = require('./config.js');
-
-
-
 
 // -----------------------------+ private functions +--------------------------------
 
-
 function toRad(n) {
 	return n * Math.PI / 180;
-};
+}
+
 function toDeg(n) {
 	return n * 180 / Math.PI;
-};
-
-function segment(startLatLon, endLatLon) {
-	this.startLatLon = startLatLon;
-	this.endLatLon = endLatLon;
 }
 
 // -----------------------------+ exports +--------------------------------
 
 exports.convertLinksToDistance = function(numberOfLinks){
-	return numberOfLinks * config.linkDistance
-}
+	return numberOfLinks * config.linkDistance;
+};
+
 // calculate the destination point given start point latitude / longitude (numeric degrees), bearing (numeric degrees) and distance (in m).
 // https://gist.github.com/mathiasbynens/354587
+// Wow, this function is horrendous. TODO: Refactor this mess!
 exports.getDestinationLatLon = function(lat1, lon1, brng, dist) {
-	var a = 6378137,
-	b = 6356752.3142,
+ var a = 6378137,
+ b = 6356752.3142,
  f = 1 / 298.257223563, // WGS-84 ellipsiod
  s = dist, //needs to be in meters
  alpha1 = toRad(brng),
@@ -44,6 +37,7 @@ exports.getDestinationLatLon = function(lat1, lon1, brng, dist) {
  B = uSq / 1024 * (256 + uSq * (-128 + uSq * (74 - 47 * uSq))),
  sigma = s / (b * A),
  sigmaP = 2 * Math.PI;
+
  while (Math.abs(sigma - sigmaP) > 1e-12) {
  	var cos2SigmaM = Math.cos(2 * sigma1 + sigma),
  	sinSigma = Math.sin(sigma),
@@ -51,19 +45,19 @@ exports.getDestinationLatLon = function(lat1, lon1, brng, dist) {
  	deltaSigma = B * sinSigma * (cos2SigmaM + B / 4 * (cosSigma * (-1 + 2 * cos2SigmaM * cos2SigmaM) - B / 6 * cos2SigmaM * (-3 + 4 * sinSigma * sinSigma) * (-3 + 4 * cos2SigmaM * cos2SigmaM)));
  	sigmaP = sigma;
  	sigma = s / (b * A) + deltaSigma;
- };
+ }
+
  var tmp = sinU1 * sinSigma - cosU1 * cosSigma * cosAlpha1,
  lat2 = Math.atan2(sinU1 * cosSigma + cosU1 * sinSigma * cosAlpha1, (1 - f) * Math.sqrt(sinAlpha * sinAlpha + tmp * tmp)),
  lambda = Math.atan2(sinSigma * sinAlpha1, cosU1 * cosSigma - sinU1 * sinSigma * cosAlpha1),
  C = f / 16 * cosSqAlpha * (4 + f * (4 - 3 * cosSqAlpha)),
  L = lambda - (1 - C) * f * sinAlpha * (sigma + C * sinSigma * (cos2SigmaM + C * cosSigma * (-1 + 2 * cos2SigmaM * cos2SigmaM))),
 revAz = Math.atan2(sinAlpha, -tmp); // final bearing
+
  return {
   lat: toDeg(lat2),
   lon: lon1 + toDeg(L)
+ };
+
 };
-}
-
-
-
 
