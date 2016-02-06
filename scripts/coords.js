@@ -1,5 +1,5 @@
 
-var _ = require('./config.js');
+var config = require('./config.js');
 
 
 
@@ -26,7 +26,7 @@ function segment(startLatLon, endLatLon) {
 // -----------------------------+ exports +--------------------------------
 
 exports.convertLinksToDistance = function(numberOfLinks){
-	return numberOfLinks * _.linkDistance
+	return numberOfLinks * config.linkDistance
 }
 // calculate the destination point given start point latitude / longitude (numeric degrees), bearing (numeric degrees) and distance (in m).
 // https://gist.github.com/mathiasbynens/354587
