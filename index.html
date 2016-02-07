@@ -14,7 +14,7 @@
 	</body>
 	</html> -->
 
-
+<!-- https://www.mapbox.com/studio/classic/projects/ -->
 
 
 	<!DOCTYPE html>
@@ -36,7 +36,7 @@
 			L.mapbox.accessToken = 'pk.eyJ1IjoiY2lpeWFuIiwiYSI6Iks0djZqb0kifQ.KDk4q7pEJOORGrH-54g0jQ';
 			var geojson = 
 			{
-				"type": "FeatureCollection",
+				"type": "FeatureCollection", //layer number 28
 				"features": [
 				{
 					"type": "Feature",
@@ -66,18 +66,23 @@
 				}
 				]
 			}
-			var positiveMap = L.mapbox.map('chain-of-positivity-map', 'ciiyan.p2l0jh16');
+
+			//https://www.mapbox.com/help/building-a-store-locator/
+
+			//the geojson points ARE NOT on a featureLayer, since I get "marker.getLatLngs is not a function" straight away.
+			 positiveMap = L.mapbox.map('chain-of-positivity-map', 'ciiyan.p2l0jh16');
 			positiveMap.setView([-41.03, 168.157], 5)
 
-			var myLayer = L.mapbox.featureLayer().addTo(positiveMap);
-			myLayer.setGeoJSON(geojson);
+			var locations = L.mapbox.featureLayer().addTo(positiveMap);
+			locations.setGeoJSON(geojson);
 			
-			positiveMap.featureLayer.on('ready', function(e) {
+			// positiveMap.featureLayer.on('ready', function(e) {
+				locations.on('ready', function(e) {
 				var line = [];
-				console.log(this);
-
+				
+					 debugger
 				this.eachLayer(function(marker) {
-						debugger
+					 //debugger here is untouched
 						line.push(marker.getLatLngs());
 					});
 
