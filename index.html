@@ -55,7 +55,11 @@
 				},
 				{
 					"type": "Feature",
-					"properties": {},
+					"properties": {
+						"marker-color": "#efd331",
+						"marker-size": "small",
+						"marker-symbol": "heart"
+          },
 					"geometry": {
 						"type": "Point",
 						"coordinates": [
@@ -69,30 +73,17 @@
 
 			//https://www.mapbox.com/help/building-a-store-locator/
 
-			//the geojson points ARE NOT on a featureLayer, since I get "marker.getLatLngs is not a function" straight away.
-			 positiveMap = L.mapbox.map('chain-of-positivity-map', 'ciiyan.p2l0jh16');
-			positiveMap.setView([-41.03, 168.157], 5)
+			var positiveMap = L.mapbox.map('chain-of-positivity-map', 'ciiyan.p2l0jh16')
+			  .setView([-41.03, 168.157], 5)
 
-			var locations = L.mapbox.featureLayer().addTo(positiveMap);
-			locations.setGeoJSON(geojson);
-			
-			// positiveMap.featureLayer.on('ready', function(e) {
-				locations.on('ready', function(e) {
-				var line = [];
-				
-					 debugger
-				this.eachLayer(function(marker) {
-					 //debugger here is untouched
-						line.push(marker.getLatLngs());
-					});
+      var line = []
+      var featureLayer = L.mapbox.featureLayer(geojson) 
+        .addTo(positiveMap)
+        .eachLayer(function(marker){
+          line.push(marker.getLatLng()) 
+        })
 
-				var polyline_options = {
-    			color: '#000' //randomize this
-    		};
-
-    		var polyline = L.polyline(line, polyline_options).addTo(positiveMap);
-    	});
-
+      L.polyline(line).addTo(positiveMap)
 		</script>
 	</body>
 	</html>
