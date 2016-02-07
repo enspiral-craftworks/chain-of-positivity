@@ -69,21 +69,19 @@
 
 			//https://www.mapbox.com/help/building-a-store-locator/
 
-			//the geojson points ARE NOT on a featureLayer, since I get "marker.getLatLngs is not a function" straight away.
 			var positiveMap = L.mapbox.map('chain-of-positivity-map', 'ciiyan.p2l0jh16');
 			positiveMap.setView([-41.03, 168.157], 5)
 
-      var LGeoJson = L.geoJson(geojson)
+      var geoJsonLayer = L.geoJson(geojson)
       
       var line = []
 
-      LGeoJson.addTo(positiveMap)
+      geoJsonLayer.addTo(positiveMap)
         .eachLayer(function(marker){
           line.push(marker.getLatLng()) 
+          console.log(marker);
         })
       L.polyline(line).addTo(positiveMap)
-
-
 
 		</script>
 	</body>
