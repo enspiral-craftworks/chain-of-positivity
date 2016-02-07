@@ -1,0 +1,1 @@
+images too big for popup box https://github.com/Leaflet/Leaflet/issues/724

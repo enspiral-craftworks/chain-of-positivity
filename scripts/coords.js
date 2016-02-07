@@ -12,6 +12,10 @@ function toDeg(n) {
 
 // -----------------------------+ exports +--------------------------------
 
+function sayHello(){
+	return 'hello'
+}
+
 exports.convertLinksToDistance = function(numberOfLinks){
 	return numberOfLinks * config.linkDistance;
 };

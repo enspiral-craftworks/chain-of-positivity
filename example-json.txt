@@ -1,45 +1,28 @@
-<!-- <!DOCTYPE html>
-<html>
-<head>
-	<title>Chain of Positivity</title>
-	<script src='https://api.tiles.mapbox.com/mapbox.js/v2.2.4/mapbox.js'></script>
-  <link href='https://api.tiles.mapbox.com/mapbox.js/v2.2.4/mapbox.css' rel='stylesheet' />
-</head>
-	<body>
-		<div id='chain-of-positivity-map' class="map"></div>
-		<script>
-			L.mapbox.accessToken = 'pk.eyJ1IjoiY2lpeWFuIiwiYSI6Iks0djZqb0kifQ.KDk4q7pEJOORGrH-54g0jQ';
-			L.mapbox.map('chain-of-positivity-map', 'ciiyan.p2l0jh16');
-		</script>
-	</body>
-	</html> -->
+ <!-- one feature -->
 
-<!-- https://www.mapbox.com/studio/classic/projects/ -->
+ {
+      "type": "Feature",
+      "properties": {
+        "marker-color": "#78f440",
+        "marker-size": "small",
+        "marker-symbol": "heart",
+        "title": "Boulcott School, Lower Hutt",
+        "description": "40 links in the chain <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/NYC_Top_of_the_Rock_Pano.jpg/640px-NYC_Top_of_the_Rock_Pano.jpg' alt='Astro'>"
+      
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          175.80322265625,
+          -41.01306578700629
+        ]
+      }
+    }
 
 
-	<!DOCTYPE html>
-	<html>
-	<head>
-		<meta charset=utf-8 />
-		<title></title>
-		<script src='https://api.tiles.mapbox.com/mapbox.js/v2.2.4/mapbox.js'></script>
-		<script src='scripts/mapbox.js'></script>
-		<script src='scripts/coords.js'></script>
-		<link href='https://api.tiles.mapbox.com/mapbox.js/v2.2.4/mapbox.css' rel='stylesheet' />
-		<style>
-			body { margin:0; padding:0; }
-			.map { position:absolute; top:0; bottom:0; width:100%; }
-		</style>
-	</head>
-	<body>
-		<div id='chain-of-positivity-map' class='map'> </div>
-		<script>
-    renderMap()
-			L.mapbox.accessToken = 'pk.eyJ1IjoiY2lpeWFuIiwiYSI6Iks0djZqb0kifQ.KDk4q7pEJOORGrH-54g0jQ';
-			var geojson = 
-			{
-  "type": "FeatureCollection",
-  "features": [
+    <!-- the whole array -->
+
+    [
     {
       "type": "Feature",
       "properties": {
@@ -113,26 +96,3 @@
       }
     }
   ]
-}
-
-			//https://www.mapbox.com/help/building-a-store-locator/
-
-			var positiveMap = L.mapbox.map('chain-of-positivity-map', 'ciiyan.p2l0jh16')
-			  .setView([-41.03, 168.157], 5)
-
-      var line = []
-      var featureLayer = L.mapbox.featureLayer(geojson) 
-        .addTo(positiveMap)
-        .eachLayer(function(marker){
-          line.push(marker.getLatLng()) 
-        })
-
-        
-         var polyline_options = {
-    color: '#f9e52b'
-  };
-      L.polyline(line, polyline_options).addTo(positiveMap)
-		</script>
-	</body>
-	</html>
-
