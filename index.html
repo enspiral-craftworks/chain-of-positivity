@@ -55,7 +55,11 @@
 				},
 				{
 					"type": "Feature",
-					"properties": {},
+					"properties": {
+						"marker-color": "#efd331",
+						"marker-size": "small",
+						"marker-symbol": "heart"
+          },
 					"geometry": {
 						"type": "Point",
 						"coordinates": [
@@ -72,17 +76,14 @@
 			var positiveMap = L.mapbox.map('chain-of-positivity-map', 'ciiyan.p2l0jh16');
 			positiveMap.setView([-41.03, 168.157], 5)
 
-      var geoJsonLayer = L.geoJson(geojson)
-      
       var line = []
-
-      geoJsonLayer.addTo(positiveMap)
+      var featureLayer = L.mapbox.featureLayer(geojson) 
+        .addTo(positiveMap)
         .eachLayer(function(marker){
           line.push(marker.getLatLng()) 
-          console.log(marker);
         })
-      L.polyline(line).addTo(positiveMap)
 
+      L.polyline(line).addTo(positiveMap)
 		</script>
 	</body>
 	</html>
