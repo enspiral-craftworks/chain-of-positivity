@@ -12,10 +12,6 @@ function toDeg(n) {
 
 // -----------------------------+ exports +--------------------------------
 
-function sayHello(){
-	return 'hello'
-}
-
 exports.convertLinksToDistance = function(numberOfLinks){
 	return numberOfLinks * config.linkDistance;
 };
@@ -43,7 +39,7 @@ exports.getDestinationLatLon = function(lat1, lon1, brng, dist) {
  sigmaP = 2 * Math.PI;
 
  while (Math.abs(sigma - sigmaP) > 1e-12) {
- 	var cos2SigmaM = Math.cos(2 * 	 + sigma),
+ 	var cos2SigmaM = Math.cos(2 * sigma1 + sigma),
  	sinSigma = Math.sin(sigma),
  	cosSigma = Math.cos(sigma),
  	deltaSigma = B * sinSigma * (cos2SigmaM + B / 4 * (cosSigma * (-1 + 2 * cos2SigmaM * cos2SigmaM) - B / 6 * cos2SigmaM * (-3 + 4 * sinSigma * sinSigma) * (-3 + 4 * cos2SigmaM * cos2SigmaM)));
@@ -64,4 +60,3 @@ revAz = Math.atan2(sinAlpha, -tmp); // final bearing
  };
 
 };
-
