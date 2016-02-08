@@ -21,5 +21,31 @@ div .leaflet-popup-content {
 	width:auto !important;
 }
 
+ul
+{
+	list-style-type: none;
+}
+
+.big_buttons{
+	display: inherit;
+	font-size: 1em;
+}
+
+
+.partner-logos {
+	display: inline;
+	height: 100px;
+	margin-left: 10px;
+}
+
+#para-main{
+	margin-top: 24px;
+}
+
+#center-logos{
+	 text-align:center
+}
+
+
 
 
