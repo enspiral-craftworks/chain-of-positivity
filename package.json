@@ -6,7 +6,8 @@
   "scripts": {
     "start": "budo . -d --serve bundle.js --live",
     "build": "browserify . -o bundle.js -g uglifyify",
-    "test": "mocha test",
+    "format": "snazzy --format || true",
+    "test": "snazzy --format && mocha test",
     "dist": "mkdir -p dist && bash -c 'cp *.{js,html,css} dist'",
     "push": "gh-pages -d dist",
     "deploy": "npm run build && npm run dist && npm run push"
@@ -18,7 +19,7 @@
     "type": "git",
     "url": "git+https://github.com/enspiral-craftworks/chain-of-positivity.git"
   },
-  "author": "younggabrielle",
+  "author": "fractalcactus",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/enspiral-craftworks/chain-of-positivity/issues"
@@ -30,11 +31,12 @@
   "devDependencies": {
     "browserify": "^10.0.0",
     "budo": "^4.0.0",
-    "gh-pages": "^0.3.0",
-    "smokestack": "^3.3.0",
-    "uglifyify": "^3.0.1",
-    "watchify": "^3.1.0",
     "chai": "*",
-    "mocha": "*"
+    "gh-pages": "^0.3.0",
+    "mocha": "*",
+    "smokestack": "^3.3.0",
+    "snazzy": "^2.0.1",
+    "uglifyify": "^3.0.1",
+    "watchify": "^3.1.0"
   }
 }
