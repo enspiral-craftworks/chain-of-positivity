@@ -30,7 +30,38 @@ function Feature (title, description, lat, lon) {
 exports.createGeoJSON = function (data) {
   var geoJSON = {
     'type': 'FeatureCollection',
-    'features': []
+    'features': [{
+      "type": "Feature",
+      "properties": {
+        "marker-color": "#000000",
+        "marker-size": "large",
+        "marker-symbol": "star-stroked",
+        "title": "The starting point of the chain!"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          172.6171875,
+          -43.54854811091287
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "marker-color": "#000000",
+        "marker-size": "large",
+        "marker-symbol": "embassy",
+        "title": "End goal of the chain!"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          174.79248046875,
+          -41.29431726315257
+        ]
+      }
+    }] // add in some features already here
   }
   var startPoint = { lat: config.startLat, lon: config.startLon }
 
