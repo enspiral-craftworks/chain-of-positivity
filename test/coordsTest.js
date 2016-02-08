@@ -1,4 +1,4 @@
-var assert = require('assert')
+/* eslint-env mocha */
 var chai = require('chai')
 var expect = chai.expect
 var coords = require('../scripts/coords.js')
@@ -20,14 +20,13 @@ describe('getDestinationLatLon()', function () {
     expect(thirdLat).to.equal(-47.27654059722032)
     expect(thirdLon).to.equal(167.5095051354256)
 
-    // add 100 to start lat/lon. 
+    // add 100 to start lat/lon.
     console.log('add 100 ' + coords.getDestinationLatLon(config.startLat, config.startLon, config.brng, 100).lat + ' , ' + coords.getDestinationLatLon(config.startLat, config.startLon, config.brng, 100).lon)
     console.log('add 200 ' + coords.getDestinationLatLon(config.startLat, config.startLon, config.brng, 100).lat + ' , ' + coords.getDestinationLatLon(config.startLat, config.startLon, config.brng, 200).lon)
     console.log('add 300 ' + coords.getDestinationLatLon(config.startLat, config.startLon, config.brng, 100).lat + ' , ' + coords.getDestinationLatLon(config.startLat, config.startLon, config.brng, 300).lon)
   // console.log("lat far away: " + coords.getDestinationLatLon(config.startLat,config.startLon,config.brng,800000).lat)
   // console.log("lon far away: " + coords.getDestinationLatLon(config.startLat,config.startLon,config.brng,800000).lon)
   })
-
 })
 
 describe('convertLinksToDistance()', function () {
@@ -39,5 +38,4 @@ describe('convertLinksToDistance()', function () {
     // console.log('In coordsTest.js, result of convertLinksToDistance ' + coords.convertLinksToDistance(5))
     expect(coords.convertLinksToDistance(5)).to.equal(config.linkDistance * 5)
   })
-
 })

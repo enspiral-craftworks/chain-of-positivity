@@ -1,3 +1,4 @@
+/* global L */
 var geoJSON = require('./geoJSON.js')
 var testData = require('../test/testData.js')
 module.exports = renderMap
@@ -15,7 +16,7 @@ function renderMap () {
     .setView([-41.03, 168.157], 5)
 
   var line = []
-  var featureLayer = L.mapbox.featureLayer(chainMarkers)
+  L.mapbox.featureLayer(chainMarkers)
     .addTo(positiveMap)
     .eachLayer(function (marker) {
       line.push(marker.getLatLng())

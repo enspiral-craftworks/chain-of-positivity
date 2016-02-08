@@ -34,7 +34,7 @@ exports.createGeoJSON = function (data) {
   }
   var startPoint = { lat: config.startLat, lon: config.startLon }
 
-  for (i = 0; i < data.length; i++) {
+  for (var i = 0; i < data.length; i++) {
     var distance = coords.convertLinksToDistance(data[i].number_of_links)
     var destination = coords.getDestinationLatLon(startPoint.lat, startPoint.lon, config.brng, distance)
     var newFeature = new Feature(data[i].title, data[i].description, destination.lat, destination.lon)
