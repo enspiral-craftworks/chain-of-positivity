@@ -13,7 +13,7 @@ function renderMap () {
   // https://www.mapbox.com/help/building-a-store-locator/
 
   var positiveMap = L.mapbox.map('chain-of-positivity-map', 'ciiyan.p2l0jh16')
-    .setView([-41.03, 168.157], 5)
+    .setView([-42.703,174.413],7) 
 
   var line = []
   L.mapbox.featureLayer(chainMarkers)
