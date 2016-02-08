@@ -6,3 +6,17 @@ body {
   padding:0;
   -webkit-font-smoothing:antialiased;
   }
+
+.map { 
+position:absolute; 
+top:0; 
+bottom:0; 
+width:50%; 
+}
+
+div .leaflet-popup-content {
+width:auto !important;
+}
+
+
+			

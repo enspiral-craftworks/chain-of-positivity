@@ -2,25 +2,41 @@
   "name": "chain-of-positivity",
   "version": "1.0.0",
   "description": "A digital visualisation of physical positivity",
-  "main": "scripts.js",
-  "directories": {
-    "test": "test"
-  },
+  "main": "index.js",
   "scripts": {
-    "test": "mocha test"
+    "start": "budo . -d --serve bundle.js --live",
+    "build": "browserify . -o bundle.js -g uglifyify",
+    "format": "snazzy --format || true",
+    "test": "snazzy --format && mocha test",
+    "dist": "mkdir -p dist && bash -c 'cp *.{js,html,css} dist'",
+    "push": "gh-pages -d dist",
+    "deploy": "npm run build && npm run dist && npm run push"
+  },
+  "browserify": {
+    "transform": []
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/enspiral-craftworks/chain-of-positivity.git"
   },
-  "author": "",
+  "author": "fractalcactus",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/enspiral-craftworks/chain-of-positivity/issues"
   },
   "homepage": "https://github.com/enspiral-craftworks/chain-of-positivity#readme",
+  "dependencies": {
+    "mapbox": "^0.12.0"
+  },
   "devDependencies": {
+    "browserify": "^10.0.0",
+    "budo": "^4.0.0",
     "chai": "*",
-    "mocha": "*"
+    "gh-pages": "^0.3.0",
+    "mocha": "*",
+    "smokestack": "^3.3.0",
+    "snazzy": "^2.0.1",
+    "uglifyify": "^3.0.1",
+    "watchify": "^3.1.0"
   }
 }
