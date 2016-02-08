@@ -11,7 +11,7 @@ function Feature(t,e,o,r){this.title=t,this.description=e,this.lat=o,this.lon=r,
 function renderMap(){console.log("renderMap called"),L.mapbox.accessToken="pk.eyJ1IjoiY2lpeWFuIiwiYSI6Iks0djZqb0kifQ.KDk4q7pEJOORGrH-54g0jQ";var e=geoJSON.createGeoJSON(testData.testData);console.log(JSON.stringify(e));var a=L.mapbox.map("chain-of-positivity-map","ciiyan.p2l0jh16").setView([-41.03,168.157],5),o=[];L.mapbox.featureLayer(e).addTo(a).eachLayer(function(e){o.push(e.getLatLng())});var t={color:"#f9e52b"};L.polyline(o,t).addTo(a)}var geoJSON=require("./geoJSON.js"),testData=require("../test/testData.js");module.exports=renderMap;
 
 },{"../test/testData.js":5,"./geoJSON.js":3}],5:[function(require,module,exports){
-module.exports.testData=[{title:"xxx",description:"yyy",number_of_links:100,image_link:"zzz"},{title:"xxx",description:"yyy",number_of_links:100,image_link:"zzz"},{title:"xxx",description:"yyy",number_of_links:100,image_link:"zzz"}];
+module.exports.testData=[];
 
 },{}],6:[function(require,module,exports){
 var renderMap=require("./scripts/renderMap.js");renderMap();
