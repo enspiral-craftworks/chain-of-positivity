@@ -19,8 +19,8 @@ function Feature (title, description, lat, lon) {
       'geometry': {
         'type': 'Point',
         'coordinates': [
-          this.lon,
-          this.lat
+        this.lon,
+        this.lat
         ]
       }
     }
@@ -41,27 +41,12 @@ exports.createGeoJSON = function (data) {
       "geometry": {
         "type": "Point",
         "coordinates": [
-          172.6171875,
-          -43.54854811091287
+        172.6171875,
+        -43.54854811091287
         ]
       }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "marker-color": "#000000",
-        "marker-size": "large",
-        "marker-symbol": "embassy",
-        "title": "End goal of the chain!"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          174.79248046875,
-          -41.29431726315257
-        ]
-      }
-    }] // add in some features already here
+    }
+    ] // add in some features already here
   }
   var startPoint = { lat: config.startLat, lon: config.startLon }
 
@@ -75,6 +60,26 @@ exports.createGeoJSON = function (data) {
     startPoint = destination
   }
 
+  var endMarker = {
+    "type": "Feature",
+    "properties": {
+      "marker-color": "#000000",
+      "marker-size": "large",
+      "marker-symbol": "embassy",
+      "title": "End goal of the chain!"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+      174.79248046875,
+      -41.29431726315257
+      ]
+    }
+  }
+
+  geoJSON.features.push(endMarker)
+
   // console.log('-------> GEOJSON ' + JSON.stringify(geoJSON))
+
   return geoJSON
 }
