@@ -11,7 +11,7 @@ function Feature(e,t,r,o){this.title=e,this.description=t,this.lat=r,this.lon=o,
 function renderMap(){console.log("renderMap called"),L.mapbox.accessToken="pk.eyJ1IjoiY2lpeWFuIiwiYSI6Iks0djZqb0kifQ.KDk4q7pEJOORGrH-54g0jQ";var e=geoJSON.createGeoJSON(testData.testData);console.log(JSON.stringify(e));var a=L.mapbox.map("chain-of-positivity-map","ciiyan.p2l0jh16").setView([-42.703,174.413],7),o=[];L.mapbox.featureLayer(e).addTo(a).eachLayer(function(e){o.push(e.getLatLng())});var t={color:"#f9e52b"};L.polyline(o,t).addTo(a)}var geoJSON=require("./geoJSON.js"),testData=require("../test/testData.js");module.exports=renderMap;
 
 },{"../test/testData.js":5,"./geoJSON.js":3}],5:[function(require,module,exports){
-module.exports.testData=[{title:"Upper Harbour Primary, Albany, Auckland",description:"52 links <img class='link-image' src='http://chainofpositivity.org/images/albany.png'>",number_of_links:52,image_link:"https://twitter.com/uhpsroom3/status/696862617264979968"}];
+module.exports.testData=[{title:"Upper Harbour Primary, Albany, Auckland",description:"52 links <img class='link-image' src='http://chainofpositivity.org/images/albany.png'>",number_of_links:52,image_link:"https://twitter.com/uhpsroom3/status/696862617264979968"},{title:"Alexandra Primary School, Alexandra",description:"130 links",number_of_links:130,image_link:""}];
 
 },{}],6:[function(require,module,exports){
 var renderMap=require("./scripts/renderMap.js");renderMap();
